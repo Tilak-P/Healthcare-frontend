@@ -44,7 +44,7 @@ const Login = ({ onLogin }) => {
   const config = roleConfig[role] || roleConfig.patient
   const IconComponent = config.icon
   const navigate = useNavigate()
-  const { login } = useAuth()
+  const { login, logout } = useAuth()
 
   const [formData, setFormData] = useState({ email: '', password: '', rememberMe: false })
   const [loading, setLoading] = useState(false)
@@ -59,10 +59,18 @@ const Login = ({ onLogin }) => {
       if (!validation.isValid) { setErrors(validation.errors); setLoading(false); return }
       const result = await login({ email: formData.email, password: formData.password })
       if (result.success) {
+        const expectedRole = role.toUpperCase()
+        const actualRole = result.user?.role
+        if (actualRole !== expectedRole) {
+          logout()
+          toast.error(`This account is registered as ${actualRole}. Please use the ${actualRole.toLowerCase()} login.`)
+          setLoading(false)
+          return
+        }
         toast.success('Welcome back! 🎉')
         if (onLogin) onLogin()
         const dashboardMap = { ADMIN: '/admin-dashboard', DOCTOR: '/doctor-dashboard', PATIENT: '/patient-dashboard' }
-        navigate(dashboardMap[result.user?.role] || config.dashboard)
+        navigate(dashboardMap[actualRole] || config.dashboard)
       } else {
         toast.error(result.message || 'Login failed. Please check your credentials.')
       }
