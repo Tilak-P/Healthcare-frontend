@@ -1,0 +1,60 @@
+﻿
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\components\Forms\MedicalRecordForm.jsx
+  69:8  warning  React Hook useEffect has missing dependencies: 'isDoctor', 'isPatient', and 'prefilledPatientId'. Either include them or remove the dependency array. If 'setFormData' needs the current value of 'prefilledPatientId', you can also switch to useReducer instead of useState and read 'prefilledPatientId' in the reducer  react-hooks/exhaustive-deps
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\context\AuthContext.jsx
+  137:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\pages\Appointments.jsx
+   63:44  warning  React Hook useEffect has a missing dependency: 'fetchAppointments'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  188:49  error    'i' is defined but never used                                                                                         no-unused-vars
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\pages\DoctorDashboard.jsx
+   39:12  error    'mounted' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                             no-unused-vars
+   44:8   warning  React Hook useEffect has a missing dependency: 'fetchDoctorData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   76:9   error    Unnecessary try/catch wrapper                                                                                       no-useless-catch
+  102:11  error    'isPast' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                              no-unused-vars
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\pages\Doctors.jsx
+  222:14  error  'err' is defined but never used  no-unused-vars
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\pages\MedicalRecords.jsx
+   17:9   error    'isPatient' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                        no-unused-vars
+   56:6   warning  React Hook useEffect has a missing dependency: 'fetchRecords'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  181:47  error    'i' is defined but never used                                                                                    no-unused-vars
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\pages\PatientDashboard.jsx
+  36:12  error    'mounted' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                no-unused-vars
+  44:8   warning  React Hook useEffect has a missing dependency: 'fetchDashboardData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\pages\Patients.jsx
+   22:9   error  'getStatusColor' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  105:49  error  'i' is defined but never used                                                                   no-unused-vars
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\pages\RoleSelect.jsx
+  254:12  error  'mounted' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           no-unused-vars
+  256:23  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  254 |     const [mounted, setMounted] = useState(false)
+  255 |
+> 256 |     useEffect(() => { setMounted(true) }, [])
+      |                       ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  257 |
+  258 |     const handleMouseMove = (e) => {
+  259 |         setMousePos({ x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight })  react-hooks/set-state-in-effect
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\pages\Signup.jsx
+  33:29  error  'Icon' is defined but never used  no-unused-vars
+
+C:\Users\Tilak\OneDrive\Desktop\Healthcare_Management\Frontend\src\services\api.js
+   88:3  error  Unnecessary try/catch wrapper  no-useless-catch
+  127:3  error  'logout' is not defined        no-undef
+
+Γ£û 21 problems (16 errors, 5 warnings)
+
